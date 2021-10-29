@@ -9,52 +9,33 @@ MID = math.floor(MIN+((MAX-MIN)/2))
 
 led = Pin(25,Pin.OUT)
 
-#Set up pins for Servo control
-base_pin = PWM(Pin(16))
-base_pin.freq(50)
-base_pin.duty_ns(MID)
+class Servo():
+    def __init__(self, start_angle = 50, pin_num = 0, minimum = MIN, maximum = MAX):
+        self.start_angle = start_angle
+        self.maximum = maximum
+        self.minimum = minimum
 
-first_pin = PWM(Pin(17))
-first_pin.freq(50)
-first_pin.duty_ns(MID)
+        #Init Pin
+        self.pin = PWM(Pin(pin_num))
+        self.pin.freq(50)
+        self.pin.duty_ns(self.calc_angle(start_angle))
 
-second_pin = PWM(Pin(18))
-second_pin.freq(50)
-second_pin.duty_ns(MID)
+    def move(self, target_angle):
+        self.pin.duty_ns(self.calc_angle(target_angle))
 
-third_pin = PWM(Pin(19))
-third_pin.freq(50)
-third_pin.duty_ns(MID)
-
-grip_pin = PWM(Pin(20))
-grip_pin.freq(50)
-grip_pin.duty_ns(MID)
-
-def calc_angle(num):
-    return math.floor(MIN+(((MAX - MIN) * num) / 100))
-
-def move_servos(base=50,first=50,second=50,third=50,grip=50):
-    print("move servo")
-    base_angle = calc_angle(base)
-    first_angle = calc_angle(first)
-    second_angle = calc_angle(second)
-    third_angle = calc_angle(third)
-    grip_angle = calc_angle(grip)
-
-    base_pin.duty_ns(base_angle)
-    first_pin.duty_ns(first_angle)
-    second_pin.duty_ns(second_angle)
-    third_pin.duty_ns(third_angle)
-    grip_pin.duty_ns(grip_angle)
-    
+    def calc_angle(self, num):
+        return math.floor(MIN+(((MAX - MIN) * num) / 100))  
 
 def main():
-    move_servos(grip=0)
+    print("loop")
+    grip.move(100)
     utime.sleep(1)
-    move_servos(grip=50)
+    grip.move(0)
     utime.sleep(1)
-    move_servos(grip=100)
-    utime.sleep(1)
+
+
+#Init Servos
+grip = Servo(50,20,MIN,MAX)
 
 while True:
     main()
