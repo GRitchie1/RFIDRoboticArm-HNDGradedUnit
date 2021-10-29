@@ -3,8 +3,8 @@ import utime
 import math
 
 
-MIN = 1000000
-MAX = 2000000
+MIN = 500000
+MAX = 2500000
 MID = math.floor(MIN+((MAX-MIN)/2))
 
 led = Pin(25,Pin.OUT)
@@ -29,13 +29,19 @@ class Servo():
 def main():
     print("loop")
     grip.move(100)
+    third.move(100)
     utime.sleep(1)
+    third.move(0)
     grip.move(0)
     utime.sleep(1)
 
 
 #Init Servos
-grip = Servo(50,20,MIN,MAX)
+grip = Servo(50,20,1000000,1500000)
+third = Servo(50,19,MIN,MAX)
+second = Servo(20,18,MIN,MAX)
+first = Servo(20,17,MIN,MAX)
+base = Servo(50,16,MIN,MAX)
 
 while True:
     main()
