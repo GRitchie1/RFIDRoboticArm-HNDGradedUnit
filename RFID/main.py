@@ -1,10 +1,7 @@
 import time
 from machine import I2C, Pin, SPI #import I2C,Pin,SPI library
 from mfrc522 import MFRC522 #import RFID reader library
-#buzzer= Pin(16, Pin.OUT) #set buzzer to GP16
-#buzzer.value(1)
-#true = Pin(15, Pin.OUT)  #set Green LED to GP15
-#false = Pin(14, Pin.OUT) #set Red LED to GP14
+
 sck = Pin(6, Pin.OUT)    #set RFID sck to GP6
 mosi = Pin(7, Pin.OUT)   #set RFID mosi to GP7
 miso = Pin(4, Pin.OUT)   #set RFID miso to GP4 
@@ -22,42 +19,12 @@ while True:
         if stat == rdr.OK:
             uid = ("0x%02x%02x%02x%02x" % (raw_uid[0], raw_uid[1], raw_uid[2], raw_uid[3]))
             print(uid)
-            if uid == card1: #if ID matches card 1, #buzzer beep once, turn on Green LED
+            if uid == card1: #if ID matches card 1, print card 1 detected
                 print("card 1 detected!")
-                #buzzer.value(0)
-                time.sleep(0.3)
-                #buzzer.value(1)
-                #true.value(1)
-                time.sleep(1)
-                #true.value(0)
                 time.sleep(1)
             elif uid == card2:
-                print("card 2 detected!")  #if ID matches card 2, #buzzer beep twice, turn on Green LED
-                #buzzer.value(0)
-                time.sleep(0.3)
-                #buzzer.value(1)
-                time.sleep(0.3)
-                #buzzer.value(0)
-                time.sleep(0.3)
-                #buzzer.value(1)
-                #true.value(1)
+                print("card 2 detected!")  #if ID matches card 2, print card 2 detected
                 time.sleep(1)
-                #true.value(0)
-                time.sleep(1)
-            else:  #if ID doesn't match any card, long beep, turn on Red LED
+            else:  #if ID doesn't match any card, print invalid card
                 print("invalid card!")
-                #buzzer.value(0)
-                #time.sleep(2)
-                #buzzer.value(1)
-                #false.value(1)
-                #time.sleep(0.1)
-                #false.value(0)
-                #time.sleep(0.1)
-                #false.value(1)
-                #time.sleep(0.1)
-                #false.value(0)
-                #time.sleep(0.1)
-                #false.value(1)
-                #time.sleep(0.1)
-                #false.value(0)
                 time.sleep(1)
