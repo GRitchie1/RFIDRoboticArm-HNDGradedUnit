@@ -11,7 +11,9 @@ class Servo():
         self.maximum = maximum
         self.minimum = minimum
         self.angle = start_angle
-        
+        self.error = 0
+        self.prev_error = 0
+        self.sum_error = 0
 
         #Init Pin
         self.pin = PWM(Pin(pin_num))
@@ -27,7 +29,6 @@ class Servo():
         return int(math.floor(MIN+(((MAX - MIN) * num) / 100)))
 
     def move_smoothly(self, target_angle, delay_ms):
-        #self.previous_angle = self.angle
         while self.angle < target_angle:
             self.angle +=1
             self.pin.duty_ns(self.calc_angle(self.angle))
@@ -37,3 +38,23 @@ class Servo():
             self.angle -= 1
             self.pin.duty_ns(self.calc_angle(self.angle))
             utime.sleep_ms(delay_ms)
+    
+    def move_PID(self, target_angle, delay_ms):
+        KP = 0.02 #0.02
+        KD = 0.01 #0.01
+        KI = 0.005 #0.005
+
+        while self.angle != target_angle:
+            self.error = target_angle - self.angle
+        
+            new_angle = self.angle+((self.error * KP) + (self.prev_error * KD) + (self.sum_error * KI))
+            new_angle = max(min(100, new_angle), 0)
+
+            self.sum_error += self.error
+            self.prev_error = self.error
+
+            self.pin.duty_ns(self.calc_angle(new_angle))
+            self.angle=int(math.floor(new_angle))
+            utime.sleep_ms(15)
+        
+        

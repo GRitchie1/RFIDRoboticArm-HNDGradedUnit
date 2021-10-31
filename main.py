@@ -10,39 +10,39 @@ led = Pin(25,Pin.OUT)
 def main():
     print("loop")
     #Rotate base
-    base.move_smoothly(100,10)
-    utime.sleep(1)
+    #base.move_PID(100,10)
+    #utime.sleep(1)
 
     #Move down
-    third.move_smoothly(75, 10)
-    second.move_smoothly(10, 10)
-    first.move_smoothly(0, 10)
-    grip.move_smoothly(100, 10)
-    utime.sleep(1)
+    #third.move_PID(75, 10)
+    #second.move_PID(10, 10)
+    #first.move_PID(0, 10)
+    #grip.move_PID(100, 10)
+    #utime.sleep(1)
 
     #Move up
-    second.move_smoothly(15, 10)
-    first.move_smoothly(15, 10)
-    third.move_smoothly(25, 10)
-    grip.move_smoothly(0, 10)
-    utime.sleep(1)
+    #second.move_PID(15, 10)
+    #first.move_PID(15, 10)
+    #third.move_PID(25, 10)
+    #grip.move_PID(0, 10)
+    #utime.sleep(1)
 
     #Rotate
-    base.move_smoothly(0,10)
-    utime.sleep(1)
+    #base.move_PID(0,10)
+    #utime.sleep(1)
 
     #Move down
-    third.move_smoothly(75, 10)
-    second.move_smoothly(10, 10)
-    first.move_smoothly(0, 10)
-    grip.move_smoothly(100, 10)
+    third.move_PID(75, 10)
+    #second.move_PID(10, 10)
+    #first.move_PID(0, 10)
+    #grip.move_PID(100, 10)
     utime.sleep(1)
 
     #Move up
-    second.move_smoothly(15, 10)
-    first.move_smoothly(15, 10)
-    third.move_smoothly(25, 10)
-    grip.move_smoothly(0, 10)
+    #second.move_PID(15, 10)
+    #first.move_PID(15, 10)
+    third.move_PID(25, 10)
+    #grip.move_PID(0, 10)
     utime.sleep(1)
 
 
