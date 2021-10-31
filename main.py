@@ -50,14 +50,16 @@ def main():
 
     #Move down
     third.move_smoothly(75, 10)
-    second.move_smoothly(0, 10)
+    second.move_smoothly(10, 10)
     first.move_smoothly(0, 10)
+    grip.move_smoothly(100, 10)
     utime.sleep(1)
 
     #Move up
     second.move_smoothly(15, 10)
     first.move_smoothly(15, 10)
     third.move_smoothly(25, 10)
+    grip.move_smoothly(0, 10)
     utime.sleep(1)
 
     #Rotate
@@ -66,14 +68,16 @@ def main():
 
     #Move down
     third.move_smoothly(75, 10)
-    second.move_smoothly(0, 10)
+    second.move_smoothly(10, 10)
     first.move_smoothly(0, 10)
+    grip.move_smoothly(100, 10)
     utime.sleep(1)
 
     #Move up
     second.move_smoothly(15, 10)
     first.move_smoothly(15, 10)
     third.move_smoothly(25, 10)
+    grip.move_smoothly(0, 10)
     utime.sleep(1)
 
 
