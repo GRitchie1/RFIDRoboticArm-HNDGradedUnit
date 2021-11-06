@@ -54,7 +54,28 @@ class Servo():
             self.prev_error = self.error
 
             self.pin.duty_ns(self.calc_angle(new_angle))
-            self.angle=int(math.floor(new_angle))
+            self.angle=int(round(new_angle))
             utime.sleep_ms(15)
-        
-        
+
+    def move_P(self, target_angle):
+        KP = 0.02 #0.02
+
+        while self.angle != target_angle:
+            self.error = target_angle - self.angle
+            print(self.error)
+
+            if (self.error * KP) < 1 and (self.error * KP) >= 0:
+                new_angle = self.angle+1
+            elif (self.error * KP) > -1 and (self.error * KP) <= 0:
+                new_angle = self.angle-1
+            else:
+                new_angle = self.angle+(self.error * KP)
+            print(new_angle)
+            new_angle = max(min(100, new_angle), 0)
+
+            self.sum_error += self.error
+            self.prev_error = self.error
+
+            self.pin.duty_ns(self.calc_angle(new_angle))
+            self.angle=int(round(new_angle))
+            utime.sleep_ms(25)       
