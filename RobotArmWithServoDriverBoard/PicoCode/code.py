@@ -98,13 +98,30 @@ def Movement_Cycle():
 
     #Move to scan item
     print("Move to scan item")
-    for i in range(first.angle, 75, -1):
+    for i in range(first.angle, 85, -1):
         first.angle = i
         time.sleep(0.02)
 
-    for i in range(second.angle, 70, -1):
+    for i in range(second.angle, 60, -1):
         second.angle = i
         time.sleep(0.02)
+
+    #Scan Item
+    partID = None
+    timer = 0
+    while timer < 3 and partID == None:
+        data = ReadRFID()
+        if data:
+            partID = data
+            print(data)
+        timer+= 1
+        time.sleep(1)
+
+    if partID:
+        print(f"{partID=}")
+    else:
+        print("No part detected")
+
 
     #Lift after scanning item
     print("Lift after scanning item")
@@ -117,8 +134,15 @@ def Movement_Cycle():
         time.sleep(0.02)
 
     #Rotate to Output position
-    print("Rotate to Output position")
-    for i in range(base.angle, 180, 1):      #Add if statement from scanned ID
+
+    if partID == "d990e0b8":
+        target_output = 90
+    else:
+        target_output = 180
+
+
+    print(f"Rotate to Output position {target_output}")
+    for i in range(base.angle, target_output, 1):      #Add if statement from scanned ID
         base.angle = i
         time.sleep(0.02)
 
@@ -193,10 +217,6 @@ def ReadRFID():
 
 
 while True:
-    data = ReadRFID()
-    if data:
-        print(data)
-
     if not startButton.value:
         print("Move")
         Movement_Cycle()
