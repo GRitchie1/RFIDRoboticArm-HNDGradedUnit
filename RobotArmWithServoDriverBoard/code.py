@@ -67,4 +67,59 @@ for i in range(third.angle, 50, 1):
     third.angle = i
     time.sleep(0.02)
 
+
+#Move to scan item
+for i in range(first.angle, 75, -1):
+    first.angle = i
+    time.sleep(0.02)
+    
+for i in range(second.angle, 70, -1):
+    second.angle = i
+    time.sleep(0.02)
+
+#Lift after scanning item
+for i in range(first.angle, 140, 1):
+    first.angle = i
+    time.sleep(0.02)
+    
+for i in range(second.angle, 90, 1):
+    second.angle = i
+    time.sleep(0.02)
+    
+#Move to place item
+for i in range(first.angle, 80, -1):
+    first.angle = i
+    time.sleep(0.02)
+    
+for i in range(second.angle, 70, -1):
+    second.angle = i
+    time.sleep(0.02)
+
+for i in range(third.angle, 30, -1):
+    third.angle = i
+    time.sleep(0.02)
+
+#Open Gripper
+for i in range(gripper.angle, 120, -1):
+    gripper.angle = i
+    time.sleep(0.02)
+
+#Lift arm
+for i in range(first.angle, 140, 1):
+    first.angle = i
+    time.sleep(0.02)
+    
+for i in range(second.angle, 90, 1):
+    second.angle = i
+    time.sleep(0.02)
+
+for i in range(third.angle, 50, 1):
+    third.angle = i
+    time.sleep(0.02)
+
+#Close Gripper
+for i in range(gripper.angle, 180, 1):
+    gripper.angle = i
+    time.sleep(0.02)
+
 pca.deinit()
