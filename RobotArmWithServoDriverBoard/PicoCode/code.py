@@ -37,7 +37,7 @@ gripper = servo.Servo(pca.channels[4], min_pulse=500, max_pulse=2400)
 
 
 #Setup
-prev_data = ""
+prev_data = None
 prev_time = 0
 timeout = 1
 
@@ -168,7 +168,11 @@ def Movement_Cycle():
         base.angle = i
         time.sleep(0.02)
 
-while True:
+
+def ReadRFID():
+    global prev_time
+    global prev_data
+
     (status, tag_type) = rfid.request(rfid.REQALL)
     if status == rfid.OK:
         (status, raw_uid) = rfid.anticoll()
@@ -183,7 +187,15 @@ while True:
             prev_time = time.monotonic()
     else:
         if time.monotonic() - prev_time > timeout:
-            prev_data = ""
+            prev_data = None
+
+    return prev_data
+
+
+while True:
+    data = ReadRFID()
+    if data:
+        print(data)
 
     if not startButton.value:
         print("Move")
