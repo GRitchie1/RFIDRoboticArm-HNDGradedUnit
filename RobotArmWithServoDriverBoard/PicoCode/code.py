@@ -137,6 +137,8 @@ def Movement_Cycle():
 
     if partID == "d990e0b8":
         target_output = 90
+    elif partID == "f3515416":
+        target_output = 145
     else:
         target_output = 180
 
