@@ -1,5 +1,13 @@
 # Models
 
+## Custom designed models
+All of the models were custom designed for this project unless listed below in [Other models](#other-models).
+
+All of the custom models were designed in [FreeCAD](https://www.freecadweb.org/).
+
+All of the models are 3D printable using PLA.
+
+## Other Models
 The following models were sourced from Thingiverse and created by [bentommye](https://www.thingiverse.com/bentommye/designs):
 - Linkage 1 & 2 (Named Arm_v4_-_mm.stl)
 - Linkage 3 (Named ArmFront_v3_-_mm.stl)
