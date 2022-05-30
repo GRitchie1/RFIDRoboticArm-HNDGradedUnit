@@ -9,11 +9,21 @@ The code was written as part of the project and utilises CircuitPython due to th
 This repository will be updated with parts lists and instructions.
 
 ## Parts List
+| Part | QTY |
+|------|-----|
+| Pi Pico | 1 |
+| Micro Servo (SG92R) | 5 |
+| Momentary Push button | 2 |
+| RFID Scanner (RC522) | 1 |
+| Power supply (5V 3A) | 1 |
+| Breadboard friendly power jack | 1 |
+| Servo driver (PCA9685) | 1 |
 
 ## Wiring Diagrams
 The wiring diagrams for this project were designed using Fritsing.
 
-![Full Wiring Diagram](https://user-images.githubusercontent.com/55364420/171036846-cb57e673-e707-403d-95c3-27c03c71ee96.jpg)
+![Full Wiring Diagram_bb](https://user-images.githubusercontent.com/55364420/171039927-9715cc31-7c0a-4324-ab6b-2bb0fb3534cc.jpg)
+
 
 ## Assembly
 To assemble the robotic arm, first ensure that you have got all of the required [parts](#Parts-List).
