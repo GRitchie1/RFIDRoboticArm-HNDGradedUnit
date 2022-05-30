@@ -13,7 +13,20 @@ This repository will be updated with parts lists and instructions.
 ## Parts List
 This project requires access to a 3D printer to manufacture the robot arm.  All of the [models](https://github.com/GRitchie1/Graded-Unit/tree/main/Models) can be 3D printed using PLA.
 
-This project requires 1 of each model.  You can print as many "Item to Pickup" as required - these are test pieces which hold an RFID fob.  The suggested number of test items is 3.
+The required quantities of 3D printed parts are shown in the table below.
+
+| Model | QTY |
+|-------|-----|
+| Base Mount | 1 |
+| Driver Gear | 1 |
+| Geared Base Bottom | 1 |
+| Geared Base Top | 1 |
+| Item to Pickup | 3 |
+| Linkage 1 & 2 | 2 |
+| Linkage 3 | 1 |
+| Motor Mount | 1 |
+
+The required quantities of components and other parts are shown below.
 
 | Part | QTY |
 |------|-----|
