@@ -18,6 +18,9 @@ This repository will be updated with parts lists and instructions.
 | Power supply (5V 3A) | 1 |
 | Breadboard friendly power jack | 1 |
 | Servo driver (PCA9685) | 1 |
+| Skateboard bearing | 2 |
+| M8 Bolt | 1 |
+| M3 * 12 Countersunk screws | 9 |
 
 ## Wiring Diagrams
 The wiring diagrams for this project were designed using Fritsing.
