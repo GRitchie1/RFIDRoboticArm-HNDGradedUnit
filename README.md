@@ -1,6 +1,6 @@
 # Graded-Unit RFID Robotic Arm Project
 
-This project was completed as part of my HND Mechatronics Graded Unit.  The client required a robotic arm to pick up, identify and sort items based on RFID codes.
+This project was completed as part of my HND Mechatronics Graded Unit.  This project was awarded an 'A' Grade.  The client required a robotic arm to pick up, identify and sort items based on RFID codes.
 
 Images of the completed system can be found [here](https://github.com/GRitchie1/RFIDRoboticArm-HNDGradedUnit/tree/main/Images).
 
